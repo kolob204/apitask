@@ -24,7 +24,6 @@ public class Specification {
         		.addFilter(new AllureRestAssured()) 
                 .setBaseUri("http://users.bugred.ru/tasks/")                
                 .build();
-
     }
 
     public static ResponseSpecification responseSpec(){
@@ -32,9 +31,7 @@ public class Specification {
                 .expectStatusCode(200) 
                 .build();
     }
-
-
-
+  
     public static void installSpec(RequestSpecification requestSpec, ResponseSpecification responseSpec){
         RestAssured.requestSpecification = requestSpec;
         RestAssured.responseSpecification = responseSpec;

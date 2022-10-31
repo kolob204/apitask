@@ -1,6 +1,12 @@
+/.git/
+/.settings/
 /allure-results/
-/logs/
+/target/
 /test-output/
 /test-target/
-/target/
-/.settings/
+*.txt
+*.jar
+*.bat
+.classpath
+.project
+suiteAPIs.xml
