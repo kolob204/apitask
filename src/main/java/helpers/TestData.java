@@ -47,7 +47,7 @@ public class TestData {
 
 	@DataProvider(parallel = true)
 	public Iterator<JSONObject> preparedData() {
-		return getUsers(1).iterator();
+		return getUsers(3).iterator();
 	}
  
 	private List<JSONObject> getUsers(int count) {
