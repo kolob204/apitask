@@ -49,18 +49,7 @@ public class TestData {
 	public Iterator<JSONObject> preparedData() {
 		return getUsers(1).iterator();
 	}
-
-	//	private List<User> getUsers(int count) {
-	//		List<User> users = new ArrayList<>();
-	//		for(int i=1;i<=count;i++) {
-	//			User user = new User(generateRandomName(),generateRandomEmail(), getInn(), new int[] { 21 }, new int[] { 12 });
-	//			user.setHobby(getRandomHobby());
-	//			user.setPhone(getRandomPhone());			
-	//			users.add(user);
-	//		}
-	//		return users;
-	//	}
-
+ 
 	private List<JSONObject> getUsers(int count) {
 		List<JSONObject> users = new ArrayList<>();
 		for (int i = 1; i <= count; i++) {
