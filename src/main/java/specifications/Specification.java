@@ -9,36 +9,24 @@ import io.restassured.specification.ResponseSpecification;
 
 public class Specification {
 
-    public static void installSpec(RequestSpecification requestSpec){
-        RestAssured.requestSpecification=requestSpec;
-    }
+	public void installSpec() {
+		RestAssured.requestSpecification = requestSpec();
+		RestAssured.responseSpecification = responseSpec();
+	}
 
-    public static void installSpec(ResponseSpecification responseSpec){
-        RestAssured.responseSpecification = responseSpec;
-    }
+	public RequestSpecification requestSpec() {
 
-    public  static RequestSpecification requestSpec() {
+		return new RequestSpecBuilder()
+				.setContentType("application/json")
+				.addFilter(new AllureRestAssured())
+				.setBaseUri("http://users.bugred.ru/tasks/")
+				.build();
+	}
 
-        return new RequestSpecBuilder()
-        		.setContentType("application/json")
-        		.addFilter(new AllureRestAssured()) 
-                .setBaseUri("http://users.bugred.ru/tasks/")                
-                .build();
-    }
+	public ResponseSpecification responseSpec() {
+		return new ResponseSpecBuilder()
+				.expectStatusCode(200)
+				.build();
+	}
 
-    public static ResponseSpecification responseSpec(){
-        return new ResponseSpecBuilder()
-                .expectStatusCode(200) 
-                .build();
-    }
-  
-    public static void installSpec(RequestSpecification requestSpec, ResponseSpecification responseSpec){
-        RestAssured.requestSpecification = requestSpec;
-        RestAssured.responseSpecification = responseSpec;
-    }
-
-    public static void deleteSpec() {
-        RestAssured.requestSpecification = null;
-        RestAssured.responseSpecification = null;
-    }
 }
